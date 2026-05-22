@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vektra Projetos - Portefólio de Projetos. Confira nossos trabalhos em modelagem 3D, detalhamento técnico, desenhos de máquinas e renderizações profissionais.">
+    <meta name="keywords" content="portefólio, projetos 3D, CAD, desenhos técnicos, modelagem, renderizações, engenharia">
+    <meta name="author" content="Vektra Projetos">
+    <title>Projetos - Vektra Projetos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0f0f0f;
+            --primary-blue: #1e88e5;
+            --secondary-blue: #0d47a1;
+            --accent-blue: #2196f3;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --text-dark: #212121;
+            --text-light: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* HEADER E NAVEGAÇÃO */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-blue) 100%);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-light);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+            border-bottom-color: var(--accent-blue);
+        }
+
+        /* MENU MOBILE */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-light);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-blue) 100%);
+            color: var(--text-light);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(33, 150, 243, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* SECTION GERAL */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* FILTROS */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            border: 2px solid var(--primary-blue);
+            background: transparent;
+            color: var(--primary-blue);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-blue);
+            color: var(--text-light);
+        }
+
+        /* PORTFOLIO GRID */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .portfolio-card {
+            background: var(--text-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(30, 136, 229, 0.2);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--medium-gray) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(13, 71, 161, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay-text {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-category {
+            display: inline-block;
+            background: var(--light-gray);
+            color: var(--primary-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .portfolio-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .portfolio-year {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .portfolio-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .portfolio-link:hover {
+            color: var(--secondary-blue);
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background-color: var(--text-light);
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--primary-blue);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 400px;
+            background: var(--light-gray);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--secondary-blue);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .modal-category {
+            display: inline-block;
+            background: var(--light-gray);
+            color: var(--primary-blue);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .modal-text {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            color: #999;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--secondary-blue);
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav a {
+                border-bottom: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero {
+                padding: 4rem 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-container {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .modal-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .modal-image {
+                height: 250px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section p,
+            .footer-section a {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-container {
+                flex-direction: column;
+            }
+
+            .filter-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">⚙</div>
+                <span>Vektra Projetos</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="index.html#inicio">Início</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Nosso Portefólio</h1>
+            <p>Conheça os projetos mais recentes da Vektra Projetos. Modelos 3D, detalhamentos técnicos e renderizações profissionais.</p>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section>
+        <div class="section-container">
+            <h2 class="section-title">Projetos Destacados</h2>
+            <p class="section-subtitle">Filtro por categoria</p>
+
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="3d">Modelos 3D</button>
+                <button class="filter-btn" data-filter="tecnico">Detalhamento Técnico</button>
+                <button class="filter-btn" data-filter="maquinas">Desenhos de Máquinas</button>
+                <button class="filter-btn" data-filter="renderizacao">Renderizações</button>
+            </div>
+
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- PROJETOS - MODELOS 3D -->
+                <div class="portfolio-card" data-category="3d">
+                    <div class="portfolio-image">
+                        📦
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-text">Clique para visualizar detalhes</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Modelos 3D</span>
+                        <h3 class="portfolio-title">Estrutura Modular</h3>
+                        <p class="portfolio-description">Modelagem completa de estrutura em tubo quadrado com componentes modulares para fácil montagem.</p>
+                        <div class="portfolio-details">
+                            <span class="portfolio-year">2026</span>
+                            <a href="#" class="portfolio-link open-modal" data-project="0">Detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="3d">
+                    <div class="portfolio-image">
+                        🏗️
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-text">Clique para visualizar detalhes</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Modelos 3D</span>
+                        <h3 class="portfolio-title">Sistema de Transportador</h3>
+                        <p class="portfolio-description">Modelagem 3D de transportador de correia com sistema de acionamento e controle automático.</p>
+                        <div class="portfolio-details">
+                            <span class="portfolio-year">2026</span>
+                            <a href="#" class="portfolio-link open-modal" data-project="1">Detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="renderizacao">
+                    <div class="portfolio-image">
+                        🎨
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-text">Clique para visualizar detalhes</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Renderizações</span>
+                        <h3 class="portfolio-title">Máquina de Processamento</h3>
+                        <p class="portfolio-description">Renderização realista de máquina industrial para processamento e embalagem de produtos.</p>
+                        <div class="portfolio-details">
+                            <span class="portfolio-year">2026</span>
+                            <a href="#" class="portfolio-link open-modal" data-project="2">Detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJETOS - DETALHAMENTO TÉCNICO -->
+                <div class="portfolio-card" data-category="tecnico">
+                    <div class="portfolio-image">
+                        📐
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-text">Clique para visualizar detalhes</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Detalhamento Técnico</span>
+                        <h3 class="portfolio-title">Desenho Técnico Completo</h3>
+                        <p class="portfolio-description">Detalhamento completo com cotas, tolerâncias e especificações de material para estrutura industrial.</p>
+                        <div class="portfolio-details">
+                            <span class="portfolio-year">2026</span>
+                            <a href="#" class="portfolio-link open-modal" data-project="3">Detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="tecnico">
+                    <div class="portfolio-image">
+                        📋
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-text">Clique para visualizar detalhes</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Detalhamento Técnico</span>
+                        <h3 class="portfolio-title">Projeto de Máquina Dosadora</h3>
+                        <p class="portfolio-description">Desenhos técnicos detalhados de máquina dosadora com lista de peças, cotas e especificações.</p>
+                        <div class="portfolio-details">
+                            <span class="portfolio-year">2026</span>
+                            <a href="#" class="portfolio-link open-modal" data-project="4">Detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJETOS - DESENHOS DE MÁQUINAS -->
+                <div class="portfolio-card" data-category="maquinas">
+                    <div class="portfolio-image">
+                        ⚙️
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-text">Clique para visualizar detalhes</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Desenhos de Máquinas</span>
+                        <h3 class="portfolio-title">Linha de Montagem Automática</h3>
+                        <p class="portfolio-description">Desenho 3D e técnico de linha de montagem automática com múltiplas estações de trabalho.</p>
+                        <div class="portfolio-details">
+                            <span class="portfolio-year">2026</span>
+                            <a href="#" class="portfolio-link open-modal" data-project="5">Detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="maquinas">
+                    <div class="portfolio-image">
+                        🔧
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-text">Clique para visualizar detalhes</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Desenhos de Máquinas</span>
+                        <h3 class="portfolio-title">Sistema de Controlo Hidráulico</h3>
+                        <p class="portfolio-description">Desenhos detalhados de sistema hidráulico com cilindros, válvulas e painéis de controlo.</p>
+                        <div class="portfolio-details">
+                            <span class="portfolio-year">2026</span>
+                            <a href="#" class="portfolio-link open-modal" data-project="6">Detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJETOS - RENDERIZAÇÕES -->
+                <div class="portfolio-card" data-category="renderizacao">
+                    <div class="portfolio-image">
+                        🎬
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-text">Clique para visualizar detalhes</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Renderizações</span>
+                        <h3 class="portfolio-title">Estação de Trabalho 3D</h3>
+                        <p class="portfolio-description">Renderização realista de estação de trabalho com equipamentos de precisão e interface intuitiva.</p>
+                        <div class="portfolio-details">
+                            <span class="portfolio-year">2026</span>
+                            <a href="#" class="portfolio-link open-modal" data-project="7">Detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="renderizacao">
+                    <div class="portfolio-image">
+                        🌟
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-text">Clique para visualizar detalhes</div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Renderizações</span>
+                        <h3 class="portfolio-title">Conjunto de Transmissão</h3>
+                        <p class="portfolio-description">Renderização de sistema de transmissão mecânica com engrenagens e correntes precisas.</p>
+                        <div class="portfolio-details">
+                            <span class="portfolio-year">2026</span>
+                            <a href="#" class="portfolio-link open-modal" data-project="8">Detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-image" id="modalImage">📦</div>
+            <span class="modal-category" id="modalCategory">Categoria</span>
+            <h2 class="modal-title" id="modalTitle">Título do Projeto</h2>
+            <p class="modal-text" id="modalDescription">Descrição completa do projeto...</p>
+            <p class="modal-text" id="modalDetails" style="margin-top: 1.5rem; color: var(--primary-blue); font-weight: 600;">Clique nos cards para explorar mais detalhes dos projetos</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Vektra Projetos</h4>
+                    <p>Engenharia e Design Mecânico de excelência para soluções industriais inovadoras.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <a href="index.html">Início</a><br>
+                    <a href="projetos.html">Projetos</a><br>
+                    <a href="index.html#servicos">Serviços</a><br>
+                    <a href="index.html#contacto">Contacto</a>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><a href="tel:+351210000000">+351 21 000 0000</a><br>
+                    <a href="mailto:info@vektraprojetos.pt">info@vektraprojetos.pt</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vektra Projetos. Todos os direitos reservados. | Desenvolvido com ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dados dos projetos
+        const projects = [
+            {
+                category: "Modelos 3D",
+                title: "Estrutura Modular",
+                description: "Modelagem completa de estrutura em tubo quadrado com componentes modulares para fácil montagem e desmontagem. Sistema totalmente parametrizado para possíveis ajustes e customizações de acordo com as necessidades do cliente.",
+                icon: "📦"
+            },
+            {
+                category: "Modelos 3D",
+                title: "Sistema de Transportador",
+                description: "Modelagem 3D de transportador de correia com sistema de acionamento e controle automático. Inclui motor, redutor, rodiletes e sistema de tensionamento automático para máxima eficiência.",
+                icon: "🏗️"
+            },
+            {
+                category: "Renderizações",
+                title: "Máquina de Processamento",
+                description: "Renderização realista de máquina industrial para processamento e embalagem de produtos. Visualização fotorrealista com iluminação profissional para apresentações de cliente e documentação técnica.",
+                icon: "🎨"
+            },
+            {
+                category: "Detalhamento Técnico",
+                title: "Desenho Técnico Completo",
+                description: "Detalhamento completo com cotas, tolerâncias e especificações de material para estrutura industrial. Inclui vistas ortogonais, perspectivas e tabelas de componentes com normas internacionais ISO.",
+                icon: "📐"
+            },
+            {
+                category: "Detalhamento Técnico",
+                title: "Projeto de Máquina Dosadora",
+                description: "Desenhos técnicos detalhados de máquina dosadora com lista de peças, cotas e especificações. Documentação completa para fabricação e montagem com precisão dimensional garantida.",
+                icon: "📋"
+            },
+            {
+                category: "Desenhos de Máquinas",
+                title: "Linha de Montagem Automática",
+                description: "Desenho 3D e técnico de linha de montagem automática com múltiplas estações de trabalho. Inclui sistema de transporte, posicionamento e controle automático com PLC integrado.",
+                icon: "⚙️"
+            },
+            {
+                category: "Desenhos de Máquinas",
+                title: "Sistema de Controlo Hidráulico",
+                description: "Desenhos detalhados de sistema hidráulico com cilindros, válvulas e painéis de controlo. Esquemas de funcionamento e especificações de componentes para máxima segurança operacional.",
+                icon: "🔧"
+            },
+            {
+                category: "Renderizações",
+                title: "Estação de Trabalho 3D",
+                description: "Renderização realista de estação de trabalho com equipamentos de precisão e interface intuitiva. Ideal para apresentações em shows, catálogos digitais e material promocional.",
+                icon: "🎬"
+            },
+            {
+                category: "Renderizações",
+                title: "Conjunto de Transmissão",
+                description: "Renderização de sistema de transmissão mecânica com engrenagens e correntes precisas. Visualização detalhada de componentes em movimento para melhor compreensão do funcionamento.",
+                icon: "🌟"
+            }
+        ];
+
+        // Menu mobile toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Filtros
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+                portfolioCards.forEach(card => {
+                    if (filterValue === 'todos' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.animation = 'none';
+                            card.offsetHeight;
+                            card.style.animation = '';
+                        }, 10);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal
+        const modal = document.getElementById('projectModal');
+        const modalClose = document.querySelector('.modal-close');
+        const openModalBtns = document.querySelectorAll('.open-modal');
+
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const projectIndex = btn.getAttribute('data-project');
+                const project = projects[projectIndex];
+
+                document.getElementById('modalImage').textContent = project.icon;
+                document.getElementById('modalCategory').textContent = project.category;
+                document.getElementById('modalTitle').textContent = project.title;
+                document.getElementById('modalDescription').textContent = project.description;
+
+                modal.style.display = 'block';
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
