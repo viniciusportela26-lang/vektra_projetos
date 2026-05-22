@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diferenciais - Vektra Projetos</title>
+    <style>
+        /* Estilos básicos para garantir uma apresentação limpa e moderna */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #11141a;
+            color: #f4f4f6;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #161b22;
+            padding: 20px;
+            border-bottom: 2px solid #0052cc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0052cc;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        nav a {
+            color: #f4f4f6;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #0052cc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo-secao h1 {
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .titulo-secao p {
+            color: #8b949e;
+            font-size: 18px;
+        }
+
+        .grid-diferenciais {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #161b22;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #0052cc;
+        }
+
+        .card .icone {
+            font-size: 40px;
+            color: #0052cc;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #8b949e;
+            font-size: 15px;
+        }
+
+        footer {
+            background-color: #161b22;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Vektra<span>Projetos</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="diferenciais.html" class="active">Diferenciais</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="titulo-secao">
+            <h1>Nossos Diferenciais</h1>
+            <p>Por que escolher a Vektra Projetos para o seu desenvolvimento industrial?</p>
+        </section>
+
+        <div class="grid-diferenciais">
+            
+            <div class="card">
+                <div class="icone">⚙️</div>
+                <h3>Modelagem 3D Avançada</h3>
+                <p>Desenvolvimento de projetos detalhados com rigor técnico, garantindo simulações realistas e validação geométrica precisa antes da fabricação.</p>
+            </div>
+
+            <div class="card">
+                <div class="icone">📐</div>
+                <h3>Detalhamento Executivo</h3>
+                <p>Desenhos de fabricação detalhados e prontos para o chão de fábrica, com dimensionamento rigoroso e especificações claras de montagem.</p>
+            </div>
+
+            <div class="card">
+                <div class="icone">🏭</div>
+                <h3>Visão de Chão de Fábrica</h3>
+                <p>Projetos pensados por quem entende de usinagem e fabricação. Menos retrabalho na oficina e processos de produção otimizados.</p>
+            </div>
+
+            <div class="card">
+                <div class="icone">💡</div>
+                <h3>Soluções Sob Medida</h3>
+                <p>Atendimento focado na real necessidade da sua empresa, desde a nacionalização de peças complexas até o desenvolvimento de maquinário industrial completo.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vektra Projetos. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
